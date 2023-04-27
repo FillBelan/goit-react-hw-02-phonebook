@@ -4,6 +4,7 @@ import {
   DeleteBtn,
   ContactName,
 } from './ContactList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ visibleContacts, onDeleteContact }) => {
   return (
@@ -21,4 +22,15 @@ export const ContactList = ({ visibleContacts, onDeleteContact }) => {
       })}
     </ContactsList>
   );
+};
+
+ContactList.propTypes = {
+  vesibleContacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDeleteContact: PropTypes.func.isRequired,
 };
